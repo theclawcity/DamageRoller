@@ -94,7 +94,7 @@ class App extends React.Component {
 
 		if (type === 'favorites'){
 
-			if (this.state.faves !== []){
+			if (this.state.favorites !== []){
 
 				this.setState({
 						searchingFor: type,
