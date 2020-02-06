@@ -93,11 +93,20 @@ class App extends React.Component {
 		let lastSearch = this.state.SearchingFor
 
 		if (type === 'favorites'){
-			this.setState({
-					searchingFor: type,
-					lastSearchType: lastSearch,
-					viewingFavorites: true
-				})
+
+			if (this.state.faves !== []){
+
+				this.setState({
+						searchingFor: type,
+						lastSearchType: lastSearch,
+						viewingFavorites: true,
+						selectedItem: this.state.favorites[0]
+					})
+			}
+			else
+			{
+				alert("No items have been favorited yet!")
+			}
 		}
 		else {
 		if (type !== this.state.searchingFor){
