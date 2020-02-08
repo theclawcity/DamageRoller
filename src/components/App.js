@@ -26,6 +26,7 @@ class App extends React.Component {
 	componentDidMount(){
 		// this.getData(this.state.lastSearchType);
 		this.getFavorites();
+		this.checkMobile();
 	}
 
 	//should this call be made from the header instead
@@ -36,6 +37,17 @@ class App extends React.Component {
 
 	componentWillUnmount(){
 		window.removeEventListener('beforeunload', this.saveFavorites)
+	}
+
+	checkMobile(){
+		if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
+    		console.log('boop')
+    		React.initializeTouchEvents(true)
+		}
+		else
+		{
+			console.log('desktawp')
+		}
 	}
 
 	//TO DO: get slug and name ONLY
@@ -94,18 +106,23 @@ class App extends React.Component {
 
 		if (type === 'favorites'){
 
-			if (this.state.favorites !== []){
+			if (this.state.favorites[0] === undefined){
 
-				this.setState({
-						searchingFor: type,
-						lastSearchType: lastSearch,
-						viewingFavorites: true,
-						selectedItem: this.state.favorites[0]
-					})
+				alert("No items have been favorited yet!")
+
 			}
 			else
 			{
-				alert("No items have been favorited yet!")
+
+				console.log(this.state.favorites)
+
+				this.setState({
+					searchingFor: type,
+					lastSearchType: lastSearch,
+					viewingFavorites: true,
+					selectedItem: this.state.favorites[0]
+				})
+
 			}
 		}
 		else {
@@ -154,17 +171,18 @@ class App extends React.Component {
 		if (faves !== savedFaves){
 
 		localStorage.setItem('favorites', JSON.stringify(faves));
-		}
 
-		localStorage.setItem('favorites', JSON.stringify(faves));
+		}
 	}
 
 	getFavorites(){
+
 		if (localStorage.getItem('favorites')){
 			let faves = JSON.parse(localStorage.getItem('favorites'))
-			console.log(faves);
+			console.log(faves[0]);
 			this.setState({favorites: faves})
 		}
+
 	}
 
 	renderDisplay = searchStatus => {
@@ -206,7 +224,7 @@ class App extends React.Component {
 		else
 		{
 			return (
-					<div class="ui">
+					<div className="ui">
 						<div className="ui hidden divider"></div>
 						<div className="ui hidden divider"></div>
 						<div className="ui hidden divider"></div>
