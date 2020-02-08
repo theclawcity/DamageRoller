@@ -26,7 +26,7 @@ class App extends React.Component {
 	componentDidMount(){
 		// this.getData(this.state.lastSearchType);
 		this.getFavorites();
-		this.checkMobile();
+		//this.checkMobile();
 	}
 
 	//should this call be made from the header instead
@@ -39,16 +39,16 @@ class App extends React.Component {
 		window.removeEventListener('beforeunload', this.saveFavorites)
 	}
 
-	checkMobile(){
-		if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
-    		console.log('boop')
-    		React.initializeTouchEvents(true)
-		}
-		else
-		{
-			console.log('desktawp')
-		}
-	}
+	// checkMobile(){
+	// 	if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
+ //    		console.log('boop')
+ //    		React.initializeTouchEvents(true)
+	// 	}
+	// 	else
+	// 	{
+	// 		console.log('desktawp')
+	// 	}
+	// }
 
 	//TO DO: get slug and name ONLY
 	getData = async (searchType) => {
