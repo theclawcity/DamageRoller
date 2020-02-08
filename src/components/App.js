@@ -162,6 +162,7 @@ class App extends React.Component {
 	getFavorites(){
 		if (localStorage.getItem('favorites')){
 			let faves = JSON.parse(localStorage.getItem('favorites'))
+			console.log(faves);
 			this.setState({favorites: faves})
 		}
 	}
