@@ -21,7 +21,6 @@ const ListComponent = ({listItems, handler, searchType}) => {
 						</select>
 					</div>
 				</form>
-				<div className="ui divider"></div>
 			</div>)
 }
 

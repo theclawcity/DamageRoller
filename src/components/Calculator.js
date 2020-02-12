@@ -144,7 +144,11 @@ class Calculator extends React.Component {
 				levelArr.push(i)
 			}
 
-			return <ListComponent listItems={levelArr} handler={this.setLevel} searchType="spell level" />
+			return (
+				<div className="eight wide column">
+					<ListComponent listItems={levelArr} handler={this.setLevel} searchType="spell level" />
+				</div>
+				)
 
 		}
 		else if (this.state.extraDice > 0)
@@ -165,9 +169,16 @@ class Calculator extends React.Component {
 			<div>
 			<h3>Calculator</h3>
 				<h1>{this.state.result}</h1>
-				{this.renderLevelList(this.props.itemLevel)}
-				<Button clickFunc={this.calculateDamage} input={this.props.diceProp} name="Roll Damage"/>
-			</div>)
+				<div className="ui two column grid">
+
+					{this.renderLevelList(this.props.itemLevel)}
+
+					<div className="eight wide column">
+						<Button clickFunc={this.calculateDamage} input={this.props.diceProp} name="Roll Damage"/>
+					</div>
+				</div>
+			</div>
+			)
 	}
 
 }

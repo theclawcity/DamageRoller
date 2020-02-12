@@ -214,6 +214,7 @@ class App extends React.Component {
 							listItems={this.state.viewingFavorites ? this.state.favorites : this.state.listItems} 
 							handler={this.onItemSelect}
 						/>
+						<div className="ui divider"></div>
 						<ItemDisplay 
 							addFavorite={this.addFavorite}
 							removeFavorite={this.removeFavorite}

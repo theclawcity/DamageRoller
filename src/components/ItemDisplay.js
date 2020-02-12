@@ -97,7 +97,7 @@ class ItemDisplay extends React.Component{
 			{	
 
 			return (
-					<div className="ui two column grid">
+					<div className="ui mobile reversed stackable two column grid">
 						<div className="ten wide column">
 							<h1>{this.props.item.name}</h1>
 							<p><em>{this.props.item.school}</em></p>
