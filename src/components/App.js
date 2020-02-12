@@ -53,7 +53,7 @@ class App extends React.Component {
 	//TO DO: get slug and name ONLY
 	getData = async (searchType) => {
 
-		if (this.state.lastSearchType !== this.state.searchingFor){
+		if (this.state.searchingFor && this.state.lastSearchType !== this.state.searchingFor){
 
 			let arr = [];
 
@@ -85,13 +85,29 @@ class App extends React.Component {
 		}
 	}
 
-	onItemSelect = item => {
+	onItemSelect = e => {
 
-		
-		console.log(item)
-		this.setState({
-				selectedItem: item,
+		e.preventDefault();
+
+
+		let itemList = this.state.viewingFavorites ? this.state.favorites : this.state.listItems;
+
+		let selectedItem = e.target.value;
+
+		console.log(selectedItem)
+
+
+		for (let i = 0; i <= itemList.length-1;i++){
+			if (itemList[i].name === selectedItem){
+
+			this.setState({
+				selectedItem: itemList[i],
 			});
+
+
+			}
+
+		}
 
 
 	//Below not working due to search limitation
@@ -196,7 +212,7 @@ class App extends React.Component {
 							loadStatus={this.state.loading}
 							searchType={this.state.searchingFor} 
 							listItems={this.state.viewingFavorites ? this.state.favorites : this.state.listItems} 
-							onItemSelect={this.onItemSelect}
+							handler={this.onItemSelect}
 						/>
 						<ItemDisplay 
 							addFavorite={this.addFavorite}

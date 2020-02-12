@@ -2,11 +2,11 @@ import React from 'react';
 
 import ListItem from './ListItem'
 
-const ListComponent = ({listItems, onItemSelect, searchType}) => {
+const ListComponent = ({listItems, handler, searchType}) => {
 
 	const renderedList = listItems.map((item) => {
 
-		return <ListItem key={item.slug ? item.slug : item} item={item} onItemSelect={onItemSelect}/>
+		return <ListItem key={item.slug ? item.slug : item} item={item}/>
 
 	})
 
@@ -14,8 +14,9 @@ const ListComponent = ({listItems, onItemSelect, searchType}) => {
 			<div className="ui">
 				<form className="ui form">
 					<div className="field">
-						<select>
-						<option>Select a {searchType}!</option>
+						<select onChange={handler}>
+						<option>{searchType}</option>
+						<option>--------------------------</option>
 						{renderedList}
 						</select>
 					</div>

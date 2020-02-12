@@ -107,9 +107,13 @@ class Calculator extends React.Component {
 	  // console.log((rolls + (this.state.value - this.props.level)) * die)
 	}
 
-	setLevel = level => {
+	setLevel = e => {
 
-		let extraDice = level - this.props.itemLevel
+		e.preventDefault();
+
+		let selectedLevel = e.target.value
+
+		let extraDice = selectedLevel - this.props.itemLevel
 
 		console.log(extraDice)
 
@@ -140,7 +144,7 @@ class Calculator extends React.Component {
 				levelArr.push(i)
 			}
 
-			return <ListComponent listItems={levelArr} onItemSelect={this.setLevel} searchType="spell level" />
+			return <ListComponent listItems={levelArr} handler={this.setLevel} searchType="spell level" />
 
 		}
 		else if (this.state.extraDice > 0)

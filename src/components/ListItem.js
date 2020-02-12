@@ -1,9 +1,9 @@
 import React from 'react';
 import './ListItem.css'
 
-const ListItem = ({item, onItemSelect}) => {
+const ListItem = ({item}) => {
 
-	return <option className="listItem" onClick={() => onItemSelect(item)}>{item.name ? item.name : item}</option>
+	return <option>{item.name ? item.name : item}</option>
 
 }
 
