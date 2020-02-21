@@ -1,0 +1,40 @@
+body {
+	background-color: #333333;
+}
+
+.MyHeader {
+	background-color: maroon!important;
+}
+
+.MyHeader h1 {
+	text-align: center;
+	color: #fff;
+}
+
+.appBox {
+	padding: 20px;
+}
+
+.calculator h3 {
+	text-align: center;
+}
+
+.calculator h1 {
+	font-size: 4em;
+	text-align: center;
+}
+
+.calculator h5 {
+	margin: 0 0 5px 0;
+	text-align: center
+}
+
+.calcButt {
+	margin: 0 auto;
+	text-align: center;
+	display: inline;
+}
+
+.listItem {
+	text-align: center;
+}

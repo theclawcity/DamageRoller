@@ -1,16 +1,15 @@
 import React from 'react';
 
+import './style.css'
+
 const Header = () => {
 
 	return (
-		<div className="ui segment">
+		<div className="ui segment header MyHeader">
 			<div className="ui container">
-				<div className="ui two column grid">
-					<div className="twelve wide column">
-						<a href="/"><h1>D&D 5e Damage Roller</h1></a>
-					</div>
-					<div className="four wide column">
-					<i type="input" onClick={() => {console.log('oooooh clicky!')}} className="cog icon"></i>
+				<div className="ui one column grid">
+					<div className="sixteen wide column">
+						<a className="redHead" href="/"><h1>D&D 5e Damage Roller</h1></a>
 					</div>
 				</div>
 			</div>

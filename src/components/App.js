@@ -2,6 +2,7 @@ import React from 'react';
 import 'semantic-ui-css/semantic.min.css';
 
 import open5e from '../api/open5e'
+import './style.css'
 import Header from './Header';
 import ListComponent from './ListComponent'
 import ItemDisplay from './ItemDisplay';
@@ -207,12 +208,13 @@ class App extends React.Component {
 
 			if (searchStatus !== null){
 				return 	(
-					<div>
+					<div className="appBox">
 						<ListComponent 
 							loadStatus={this.state.loading}
 							searchType={this.state.searchingFor} 
 							listItems={this.state.viewingFavorites ? this.state.favorites : this.state.listItems} 
 							handler={this.onItemSelect}
+							value={this.state.selectedItem.name}
 						/>
 						<div className="ui divider"></div>
 						<ItemDisplay 
@@ -227,7 +229,7 @@ class App extends React.Component {
 			else
 			{
 				return (
-					<div className="ui">
+					<div className="ui appBox">
 							<h2>Hello!</h2> 
 							<p>Welcome to my dice roller app. You can use it to generate damage rolls for items included in Wizards 
 							of the Coast's <em>Dungeons & Dragons: Fifth Edition</em> SRD. To get started, simply select an item type 
@@ -241,7 +243,7 @@ class App extends React.Component {
 		else
 		{
 			return (
-					<div className="ui">
+					<div className="ui appBox">
 						<div className="ui hidden divider"></div>
 						<div className="ui hidden divider"></div>
 						<div className="ui hidden divider"></div>
@@ -269,9 +271,9 @@ class App extends React.Component {
 						<Button clickFunc={this.onTypeSelect} input="spells" name="Spells" />
 						<Button clickFunc={this.onTypeSelect} input="favorites" name="Favorites" />
 					</div>
-				<div className="ui container segment">
-				{this.renderDisplay(this.state.searchingFor)}
-				</div>
+					<div className="ui container segment">
+						{this.renderDisplay(this.state.searchingFor)}
+					</div>
 				</div>
 			</div>
 			)

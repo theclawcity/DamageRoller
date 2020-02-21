@@ -2,7 +2,7 @@ import React from 'react';
 
 import ListItem from './ListItem'
 
-const ListComponent = ({listItems, handler, searchType}) => {
+const ListComponent = ({listItems, handler, searchType, value}) => {
 
 	const renderedList = listItems.map((item) => {
 
@@ -10,13 +10,13 @@ const ListComponent = ({listItems, handler, searchType}) => {
 
 	})
 
+	console.log("value: " + value)
+
 		return (
 			<div className="ui">
 				<form className="ui form">
 					<div className="field">
-						<select onChange={handler}>
-						<option>{searchType}</option>
-						<option>--------------------------</option>
+						<select onChange={handler} value={value}>
 						{renderedList}
 						</select>
 					</div>

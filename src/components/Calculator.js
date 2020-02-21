@@ -1,5 +1,6 @@
 import React from 'react';
 
+import './style.css'
 import Button from './Button';
 import ListComponent from './ListComponent';
 
@@ -146,7 +147,9 @@ class Calculator extends React.Component {
 
 			return (
 				<div className="eight wide column">
-					<ListComponent listItems={levelArr} handler={this.setLevel} searchType="spell level" />
+					<h5>Spell Level</h5>
+					<ListComponent listItems={levelArr} handler={this.setLevel} searchType="Add Spell Level" value={this.props.itemlevel}/>
+					<br />
 				</div>
 				)
 
@@ -166,17 +169,15 @@ class Calculator extends React.Component {
 	render(){
 
 		return (
-			<div>
+			<div className="calculator">
 			<h3>Calculator</h3>
-				<h1>{this.state.result}</h1>
-				<div className="ui two column grid">
-
-					{this.renderLevelList(this.props.itemLevel)}
-
-					<div className="eight wide column">
-						<Button clickFunc={this.calculateDamage} input={this.props.diceProp} name="Roll Damage"/>
+				<div className="ui one column centered grid">
+					<div className="seven wide column">
+						{this.renderLevelList(this.props.itemLevel)}
+						<Button textAlign="center" clickFunc={this.calculateDamage} input={this.props.diceProp} name="Roll Damage"/>
 					</div>
 				</div>
+				<h1>{this.state.result}</h1>
 			</div>
 			)
 	}

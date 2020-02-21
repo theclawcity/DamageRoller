@@ -3,7 +3,7 @@ import './ListItem.css'
 
 const ListItem = ({item}) => {
 
-	return <option>{item.name ? item.name : item}</option>
+	return <option className="ListItem">{item.name ? item.name : item}</option>
 
 }
 
