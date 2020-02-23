@@ -10,8 +10,6 @@ const ListComponent = ({listItems, handler, searchType, value}) => {
 
 	})
 
-	console.log("value: " + value)
-
 		return (
 			<div className="ui">
 				<form className="ui form">

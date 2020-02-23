@@ -51,9 +51,9 @@ class ItemDisplay extends React.Component{
 
 	getSpellLevel(){
 		if (this.props.item.level){
-			console.log(this.props.item.level)
 			let spellLevel = this.props.item.level.match(/(\d+)/)
 
+			console.log("level is " + parseInt(spellLevel))
 			return parseInt(spellLevel)
 		}
 
@@ -101,7 +101,7 @@ class ItemDisplay extends React.Component{
 						<div className="ten wide column">
 							<h1>{this.props.item.name}</h1>
 							<p><em>{this.props.item.school}</em></p>
-							<p><b>Duration:</b> {this.props.item.duration}</p>
+							<p><b>{this.props.item.duration ? "Duration: " : ""}</b>{this.props.item.duration}</p>
 							<p>{this.props.item.level}</p>
 							<p>{this.formatText(this.props.item.desc)}</p>
 							<p>{this.props.item.category}</p>

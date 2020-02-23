@@ -96,8 +96,6 @@ class Calculator extends React.Component {
 	  	      //   sum += this.diceRoll(die)
 	  	      // }
 	  
-	  	  console.log(sum)
-	  
 	  	  // alert(`You rolled a ${sum}!`)
 
 	  	  this.setState({
@@ -115,8 +113,6 @@ class Calculator extends React.Component {
 		let selectedLevel = e.target.value
 
 		let extraDice = selectedLevel - this.props.itemLevel
-
-		console.log(extraDice)
 
 		this.setState({extraDice: extraDice})
 
@@ -148,7 +144,7 @@ class Calculator extends React.Component {
 			return (
 				<div className="eight wide column">
 					<h5>Spell Level</h5>
-					<ListComponent listItems={levelArr} handler={this.setLevel} searchType="Add Spell Level" value={this.props.itemlevel}/>
+					<ListComponent listItems={levelArr} handler={this.setLevel} searchType="Add Spell Level" value={this.props.itemlevel + this.state.extraDice}/>
 					<br />
 				</div>
 				)
