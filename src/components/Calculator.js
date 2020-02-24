@@ -13,7 +13,8 @@ class Calculator extends React.Component {
 			diceString: null,
 			diceVal: null,
 			result: null,
-			extraDice: 0
+			extraDice: 0,
+			listVal: 1
 
 		}
 		this.calculateDamage = this.calculateDamage.bind(this)
@@ -29,12 +30,6 @@ class Calculator extends React.Component {
 	  	
 	  	return dice
 	}
-
-
-
-
-
-
 
 
 	getValues = diceProp => {
@@ -114,9 +109,13 @@ class Calculator extends React.Component {
 
 		let extraDice = selectedLevel - this.props.itemLevel
 
-		this.setState({extraDice: extraDice})
+		this.setState({
+			extraDice: extraDice
+		})
 
 	}
+
+
 
 	addExtraDice = diceProp => {
 
@@ -144,7 +143,7 @@ class Calculator extends React.Component {
 			return (
 				<div className="eight wide column">
 					<h5>Spell Level</h5>
-					<ListComponent listItems={levelArr} handler={this.setLevel} searchType="Add Spell Level" value={this.props.itemlevel + this.state.extraDice}/>
+					<ListComponent listItems={levelArr} handler={this.setLevel} searchType="Add Spell Level" value={this.state.extraDice + baseLevel}/>
 					<br />
 				</div>
 				)
